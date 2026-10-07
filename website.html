@@ -1,0 +1,1857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Prachi Nadgouda | BCA Student Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* =========================
+           GLOBAL STYLES
+        ========================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --blue: #1769aa;
+            --dark-blue: #0b3d91;
+            --orange: #ff7a00;
+            --pink: #ffdce8;
+            --light-blue: #eaf5ff;
+            --white: #ffffff;
+            --dark: #172033;
+            --gray: #667085;
+            --shadow: 0 15px 40px rgba(23, 105, 170, 0.12);
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: var(--white);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 40px;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .section-title h2 span {
+            color: var(--orange);
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 650px;
+            margin: auto;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================== */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.93);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+        }
+
+        nav {
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 800;
+            color: var(--blue);
+        }
+
+        .logo span {
+            color: var(--orange);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--dark);
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 3px;
+            left: 0;
+            bottom: -8px;
+            background: var(--orange);
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--orange);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-btn {
+            display: none;
+            font-size: 25px;
+            color: var(--blue);
+            cursor: pointer;
+        }
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            min-height: 100vh;
+            padding-top: 75px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 90% 15%, #ffdce8 0, transparent 25%),
+                radial-gradient(circle at 10% 90%, #eaf5ff 0, transparent 25%),
+                white;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-text {
+            animation: slideLeft 1s ease forwards;
+        }
+
+        .hello {
+            display: inline-block;
+            background: var(--pink);
+            color: var(--orange);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 6vw, 72px);
+            line-height: 1.1;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: var(--blue);
+        }
+
+        .hero h3 {
+            font-size: 24px;
+            color: var(--orange);
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            color: var(--gray);
+            max-width: 600px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 13px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: 0.3s;
+            border: 2px solid var(--blue);
+        }
+
+        .btn-primary {
+            background: var(--blue);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--dark-blue);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(23, 105, 170, 0.25);
+        }
+
+        .btn-outline {
+            color: var(--blue);
+            background: white;
+        }
+
+        .btn-outline:hover {
+            background: var(--pink);
+            transform: translateY(-4px);
+        }
+
+        /* Profile illustration */
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            animation: slideRight 1s ease forwards;
+        }
+
+        .profile-circle {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--blue), #48a9ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 25px 60px rgba(23,105,170,0.25);
+            animation: floating 4s ease-in-out infinite;
+        }
+
+        .profile-inner {
+            width: 310px;
+            height: 310px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #fff, var(--pink));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .profile-inner i {
+            font-size: 100px;
+            color: var(--blue);
+        }
+
+        .floating-card {
+            position: absolute;
+            padding: 13px 18px;
+            border-radius: 15px;
+            background: white;
+            box-shadow: var(--shadow);
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .card-one {
+            top: 20px;
+            right: -25px;
+            color: var(--orange);
+        }
+
+        .card-two {
+            bottom: 25px;
+            left: -35px;
+            color: var(--blue);
+        }
+
+        /* =========================
+           ABOUT
+        ========================== */
+
+        .about {
+            background: var(--light-blue);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-card {
+            background: white;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: var(--shadow);
+        }
+
+        .about-card h3 {
+            font-size: 27px;
+            margin-bottom: 15px;
+            color: var(--blue);
+        }
+
+        .about-card p {
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .info-list {
+            display: grid;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .info-item {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .info-item i {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: var(--pink);
+            color: var(--orange);
+        }
+
+        .about-quote {
+            background: linear-gradient(135deg, var(--blue), var(--dark-blue));
+            color: white;
+            padding: 45px;
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-quote::before {
+            content: "";
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.08);
+            right: -50px;
+            top: -50px;
+        }
+
+        .about-quote i {
+            font-size: 40px;
+            color: #ffb36b;
+            margin-bottom: 20px;
+        }
+
+        .about-quote h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .about-quote p {
+            line-height: 1.8;
+            color: #e8f3ff;
+        }
+
+        /* =========================
+           EDUCATION
+        ========================== */
+
+        .timeline {
+            max-width: 850px;
+            margin: auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            width: 4px;
+            height: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(var(--blue), var(--orange));
+            border-radius: 10px;
+        }
+
+        .timeline-item {
+            width: 50%;
+            padding: 15px 35px;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--orange);
+            border: 4px solid white;
+            box-shadow: 0 0 0 3px var(--orange);
+            top: 28px;
+            z-index: 2;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -9px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -9px;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            transition: 0.3s;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-7px);
+        }
+
+        .timeline-content h3 {
+            color: var(--blue);
+            font-size: 19px;
+        }
+
+        .timeline-content h4 {
+            color: var(--orange);
+            margin: 7px 0;
+            font-size: 14px;
+        }
+
+        .timeline-content p {
+            color: var(--gray);
+            font-size: 13px;
+        }
+
+        .percentage {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 5px 12px;
+            border-radius: 20px;
+            background: var(--pink);
+            color: var(--orange);
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        /* =========================
+           SKILLS
+        ========================== */
+
+        .skills {
+            background: var(--light-blue);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 22px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: 0.4s;
+            border-bottom: 4px solid transparent;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            border-bottom-color: var(--orange);
+        }
+
+        .skill-icon {
+            width: 70px;
+            height: 70px;
+            margin: auto auto 18px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--pink);
+            color: var(--orange);
+            font-size: 30px;
+        }
+
+        .skill-card:nth-child(even) .skill-icon {
+            background: var(--light-blue);
+            color: var(--blue);
+        }
+
+        .skill-card h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .skill-card p {
+            font-size: 13px;
+            color: var(--gray);
+        }
+
+        /* =========================
+           ACHIEVEMENTS
+        ========================== */
+
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .achievement-card {
+            padding: 35px 25px;
+            border-radius: 25px;
+            background: white;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .achievement-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 5px;
+            width: 100%;
+            background: linear-gradient(90deg, var(--orange), var(--blue));
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+
+        .achievement-card i {
+            font-size: 45px;
+            color: var(--orange);
+            margin-bottom: 20px;
+        }
+
+        .achievement-card h3 {
+            margin-bottom: 10px;
+            color: var(--blue);
+        }
+
+        .achievement-card p {
+            color: var(--gray);
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        /* =========================
+           HOBBIES
+        ========================== */
+
+        .hobbies {
+            background: var(--pink);
+        }
+
+        .hobby-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .hobby {
+            background: white;
+            padding: 30px 15px;
+            text-align: center;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(255,122,0,0.08);
+            transition: 0.3s;
+        }
+
+        .hobby:hover {
+            transform: translateY(-8px);
+            background: var(--blue);
+            color: white;
+        }
+
+        .hobby i {
+            display: block;
+            font-size: 35px;
+            color: var(--orange);
+            margin-bottom: 12px;
+        }
+
+        .hobby:hover i {
+            color: white;
+        }
+
+        .hobby h3 {
+            font-size: 16px;
+        }
+
+        /* =========================
+           CERTIFICATION
+        ========================== */
+
+        .certificate-box {
+            max-width: 800px;
+            margin: auto;
+            background: linear-gradient(135deg, #fff, #fff6f9);
+            border: 2px solid var(--pink);
+            padding: 50px;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .certificate-box i {
+            font-size: 60px;
+            color: var(--orange);
+            margin-bottom: 20px;
+        }
+
+        .certificate-box h3 {
+            font-size: 27px;
+            color: var(--blue);
+            margin-bottom: 15px;
+        }
+
+        .certificate-box p {
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        .certificate-tag {
+            display: inline-block;
+            margin-top: 20px;
+            background: var(--blue);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 13px;
+        }
+
+        /* =========================
+           CONTACT
+        ========================== */
+
+        .contact {
+            background: var(--light-blue);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, var(--blue), var(--dark-blue));
+            color: white;
+            padding: 40px;
+            border-radius: 25px;
+        }
+
+        .contact-info h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .contact-info p {
+            color: #dceeff;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .contact-detail {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-detail i {
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffad62;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 35px;
+            border-radius: 25px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 7px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 13px 15px;
+            border: 1px solid #e0e5eb;
+            border-radius: 10px;
+            outline: none;
+            font-family: inherit;
+            transition: 0.3s;
+        }
+
+        .form-group textarea {
+            resize: none;
+            height: 130px;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(23,105,170,0.08);
+        }
+
+        .submit-btn {
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            background: #101828;
+            color: white;
+            padding: 35px 0;
+            text-align: center;
+        }
+
+        footer .logo {
+            color: white;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        footer p {
+            color: #98a2b3;
+            font-size: 13px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #1d2939;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--orange);
+            transform: translateY(-4px);
+        }
+
+        /* =========================
+           SCROLL ANIMATION
+        ========================== */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes floating {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @keyframes slideLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideRight {
+            from {
+                opacity: 0;
+                transform: translateX(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
+
+        @media (max-width: 900px) {
+
+            .hero-content,
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding-top: 110px;
+                padding-bottom: 80px;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .skills-grid,
+            .achievement-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hobby-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-image {
+                margin-top: 30px;
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            .nav-links {
+                position: absolute;
+                top: 75px;
+                left: -100%;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 25px;
+                box-shadow: 0 15px 25px rgba(0,0,0,0.08);
+                transition: 0.3s;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .section {
+                padding: 70px 0;
+            }
+
+            .section-title h2 {
+                font-size: 32px;
+            }
+
+            .profile-circle {
+                width: 280px;
+                height: 280px;
+            }
+
+            .profile-inner {
+                width: 245px;
+                height: 245px;
+            }
+
+            .profile-inner i {
+                font-size: 75px;
+            }
+
+            .card-one {
+                right: -5px;
+            }
+
+            .card-two {
+                left: -5px;
+            }
+
+            .skills-grid,
+            .achievement-grid,
+            .hobby-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 10px;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                width: 100%;
+                left: 0;
+                text-align: left;
+                padding-left: 40px;
+                padding-right: 0;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-dot,
+            .timeline-item:nth-child(even) .timeline-dot {
+                left: 1px;
+                right: auto;
+            }
+
+            .certificate-box {
+                padding: 35px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#home" class="logo">Prachi<span>.</span></a>
+
+                <div class="menu-btn" id="menuBtn">
+                    <i class="fas fa-bars"></i>
+                </div>
+
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#achievements">Achievements</a></li>
+                    <li><a href="#hobbies">Hobbies</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero" id="home">
+
+        <div class="container">
+
+            <div class="hero-content">
+
+                <div class="hero-text">
+
+                    <span class="hello">
+                        👋 Hello, I'm
+                    </span>
+
+                    <h1>
+                        Prachi <span>Nadgouda</span>
+                    </h1>
+
+                    <h3>
+                        BCA Student & Future Tech Enthusiast
+                    </h3>
+
+                    <p>
+                        I am a passionate BCA 1st semester student who loves
+                        technology, creativity and learning new things.
+                        I am currently building my skills in web development,
+                        programming and computer science.
+                    </p>
+
+                    <div class="buttons">
+                        <a href="#about" class="btn btn-primary">
+                            Explore My Portfolio
+                            <i class="fas fa-arrow-down"></i>
+                        </a>
+
+                        <a href="#contact" class="btn btn-outline">
+                            Contact Me
+                            <i class="fas fa-paper-plane"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+
+                <div class="hero-image">
+
+                    <div class="profile-circle">
+
+                        <div class="profile-inner">
+                            <div>
+                                <i class="fas fa-user-graduate"></i>
+                                <h3 style="color:#1769aa; margin-top:10px;">
+                                    BCA Student
+                                </h3>
+                            </div>
+                        </div>
+
+                        <div class="floating-card card-one">
+                            <i class="fas fa-code"></i>
+                            Web Developer
+                        </div>
+
+                        <div class="floating-card card-two">
+                            <i class="fas fa-star"></i>
+                            Creative Learner
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section class="section about" id="about">
+
+        <div class="container">
+
+            <div class="section-title reveal">
+                <h2>About <span>Me</span></h2>
+                <p>
+                    Get to know a little more about my academic journey,
+                    interests and goals.
+                </p>
+            </div>
+
+            <div class="about-content">
+
+                <div class="about-card reveal">
+
+                    <h3>Who Am I?</h3>
+
+                    <p>
+                        My name is <strong>Prachi Nadgouda</strong>.
+                        I am currently pursuing my Bachelor of Computer
+                        Applications (BCA) and I am passionate about
+                        computers, programming and technology.
+                    </p>
+
+                    <p>
+                        I enjoy learning new technologies and improving
+                        my skills through practical projects and
+                        creative activities.
+                    </p>
+
+                    <div class="info-list">
+
+                        <div class="info-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div>
+                                <strong>Course</strong>
+                                <p>BCA – 1st Semester</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <i class="fas fa-university"></i>
+                            <div>
+                                <strong>College</strong>
+                                <p>SKE BCA College, Chandgad</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <i class="fas fa-location-dot"></i>
+                            <div>
+                                <strong>Location</strong>
+                                <p>Chandgad, Maharashtra</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="about-quote reveal">
+
+                    <i class="fas fa-quote-left"></i>
+
+                    <h3>
+                        Learning Today,<br>
+                        Building Tomorrow.
+                    </h3>
+
+                    <p>
+                        I believe that every new skill is a step towards
+                        achieving bigger dreams. My goal is to continuously
+                        learn, create and grow as a technology professional.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         EDUCATION
+    ========================== -->
+
+    <section class="section" id="education">
+
+        <div class="container">
+
+            <div class="section-title reveal">
+                <h2>My <span>Education</span></h2>
+                <p>
+                    My academic journey and achievements.
+                </p>
+            </div>
+
+            <div class="timeline">
+
+                <div class="timeline-item reveal">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-content">
+
+                        <h3>BCA – 1st Semester</h3>
+
+                        <h4>
+                            SKE BCA College, Chandgad
+                        </h4>
+
+                        <p>
+                            Currently pursuing Bachelor of Computer
+                            Applications.
+                        </p>
+
+                        <span class="percentage">
+                            Current Student
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="timeline-item reveal">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-content">
+
+                        <h3>12th Standard</h3>
+
+                        <h4>
+                            N B Patil Jr. College, Chandgad
+                        </h4>
+
+                        <p>
+                            Successfully completed higher secondary
+                            education with excellent academic performance.
+                        </p>
+
+                        <span class="percentage">
+                            90%
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="timeline-item reveal">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-content">
+
+                        <h3>10th Standard</h3>
+
+                        <h4>
+                            The New English School
+                        </h4>
+
+                        <p>
+                            Completed secondary education with an
+                            excellent academic record.
+                        </p>
+
+                        <span class="percentage">
+                            95%
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SKILLS
+    ========================== -->
+
+    <section class="section skills" id="skills">
+
+        <div class="container">
+
+            <div class="section-title reveal">
+
+                <h2>My <span>Skills</span></h2>
+
+                <p>
+                    Technologies and computer science subjects I am
+                    currently learning and working with.
+                </p>
+
+            </div>
+
+
+            <div class="skills-grid">
+
+                <div class="skill-card reveal">
+                    <div class="skill-icon">
+                        <i class="fab fa-html5"></i>
+                    </div>
+                    <h3>HTML</h3>
+                    <p>Building structured and semantic web pages.</p>
+                </div>
+
+
+                <div class="skill-card reveal">
+                    <div class="skill-icon">
+                        <i class="fab fa-css3-alt"></i>
+                    </div>
+                    <h3>CSS</h3>
+                    <p>Creating beautiful and responsive designs.</p>
+                </div>
+
+
+                <div class="skill-card reveal">
+                    <div class="skill-icon">
+                        <i class="fab fa-bootstrap"></i>
+                    </div>
+                    <h3>Bootstrap</h3>
+                    <p>Developing responsive layouts efficiently.</p>
+                </div>
+
+
+                <div class="skill-card reveal">
+                    <div class="skill-icon">
+                        <i class="fas fa-c"></i>
+                    </div>
+                    <h3>C Programming</h3>
+                    <p>Learning programming fundamentals and logic.</p>
+                </div>
+
+
+                <div class="skill-card reveal">
+                    <div class="skill-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3>Computer Architecture</h3>
+                    <p>Understanding computer organization and hardware.</p>
+                </div>
+
+
+                <div class="skill-card reveal">
+                    <div class="skill-icon">
+                        <i class="fab fa-java"></i>
+                    </div>
+                    <h3>Java</h3>
+                    <p>Learning object-oriented programming concepts.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ACHIEVEMENTS
+    ========================== -->
+
+    <section class="section" id="achievements">
+
+        <div class="container">
+
+            <div class="section-title reveal">
+
+                <h2>My <span>Achievements</span></h2>
+
+                <p>
+                    Some accomplishments that make my journey special.
+                </p>
+
+            </div>
+
+
+            <div class="achievement-grid">
+
+                <div class="achievement-card reveal">
+
+                    <i class="fas fa-trophy"></i>
+
+                    <h3>1st Place</h3>
+
+                    <p>
+                        Secured first place in a Poster Presentation
+                        on the topic <strong>World Ozone Day</strong>.
+                    </p>
+
+                </div>
+
+
+                <div class="achievement-card reveal">
+
+                    <i class="fas fa-medal"></i>
+
+                    <h3>2nd Place</h3>
+
+                    <p>
+                        Secured second place in
+                        <strong>Kho-Kho</strong>.
+                    </p>
+
+                </div>
+
+
+                <div class="achievement-card reveal">
+
+                    <i class="fas fa-robot"></i>
+
+                    <h3>Certified Course</h3>
+
+                    <p>
+                        Successfully completed a certified course
+                        in <strong>AI and Robotics</strong>.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         HOBBIES
+    ========================== -->
+
+    <section class="section hobbies" id="hobbies">
+
+        <div class="container">
+
+            <div class="section-title reveal">
+
+                <h2>My <span>Hobbies</span></h2>
+
+                <p>
+                    Activities that keep me creative, active and happy.
+                </p>
+
+            </div>
+
+
+            <div class="hobby-grid">
+
+                <div class="hobby reveal">
+                    <i class="fas fa-baseball-bat-ball"></i>
+                    <h3>Playing Cricket</h3>
+                </div>
+
+                <div class="hobby reveal">
+                    <i class="fas fa-person-dancing"></i>
+                    <h3>Dancing</h3>
+                </div>
+
+                <div class="hobby reveal">
+                    <i class="fas fa-microphone"></i>
+                    <h3>Singing</h3>
+                </div>
+
+                <div class="hobby reveal">
+                    <i class="fas fa-heart"></i>
+                    <h3>Creative Activities</h3>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CERTIFICATION
+    ========================== -->
+
+    <section class="section">
+
+        <div class="container">
+
+            <div class="section-title reveal">
+
+                <h2>My <span>Certification</span></h2>
+
+            </div>
+
+            <div class="certificate-box reveal">
+
+                <i class="fas fa-certificate"></i>
+
+                <h3>
+                    AI & Robotics
+                </h3>
+
+                <p>
+                    I have successfully completed a certified course
+                    in Artificial Intelligence and Robotics. This course
+                    helped me explore emerging technologies and develop
+                    an interest in the future of intelligent systems.
+                </p>
+
+                <span class="certificate-tag">
+                    Certified Course
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section class="section contact" id="contact">
+
+        <div class="container">
+
+            <div class="section-title reveal">
+
+                <h2>Let's <span>Connect</span></h2>
+
+                <p>
+                    Feel free to get in touch with me.
+                </p>
+
+            </div>
+
+
+            <div class="contact-content">
+
+                <div class="contact-info reveal">
+
+                    <h3>Contact Me</h3>
+
+                    <p>
+                        I am always interested in learning,
+                        connecting with new people and exploring
+                        opportunities in technology.
+                    </p>
+
+
+                    <div class="contact-detail">
+
+                        <i class="fas fa-user"></i>
+
+                        <div>
+                            <strong>Name</strong>
+                            <p>Prachi Nadgouda</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-detail">
+
+                        <i class="fas fa-graduation-cap"></i>
+
+                        <div>
+                            <strong>Education</strong>
+                            <p>BCA – 1st Semester</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-detail">
+
+                        <i class="fas fa-location-dot"></i>
+
+                        <div>
+                            <strong>Location</strong>
+                            <p>Chandgad, Maharashtra</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <form class="contact-form reveal" id="contactForm">
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            Your Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Enter your name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Your Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Enter your email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="message">
+                            Message
+                        </label>
+
+                        <textarea
+                            id="message"
+                            placeholder="Write your message..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary submit-btn"
+                    >
+                        Send Message
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div class="container">
+
+            <a href="#home" class="logo">
+                Prachi<span>.</span>
+            </a>
+
+            <div class="social-links">
+
+                <a href="#" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+
+                <a href="#" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+
+                <a href="#" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+
+                <a href="#" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+
+            </div>
+
+            <p>
+                © 2026 Prachi Nadgouda. Designed with ❤️ and creativity.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        /* Mobile Menu */
+
+        const menuBtn = document.getElementById("menuBtn");
+        const navLinks = document.getElementById("navLinks");
+
+        menuBtn.addEventListener("click", () => {
+
+            navLinks.classList.toggle("active");
+
+            const icon = menuBtn.querySelector("i");
+
+            if (navLinks.classList.contains("active")) {
+                icon.classList.remove("fa-bars");
+                icon.classList.add("fa-xmark");
+            } else {
+                icon.classList.remove("fa-xmark");
+                icon.classList.add("fa-bars");
+            }
+
+        });
+
+
+        /* Close mobile menu after clicking */
+
+        document.querySelectorAll(".nav-links a").forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                navLinks.classList.remove("active");
+
+                const icon = menuBtn.querySelector("i");
+
+                icon.classList.remove("fa-xmark");
+                icon.classList.add("fa-bars");
+
+            });
+
+        });
+
+
+        /* Scroll Reveal Animation */
+
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+        function revealOnScroll() {
+
+            const windowHeight = window.innerHeight;
+
+            revealElements.forEach(element => {
+
+                const elementTop =
+                    element.getBoundingClientRect().top;
+
+                if (elementTop < windowHeight - 100) {
+
+                    element.classList.add("active");
+
+                }
+
+            });
+
+        }
+
+        window.addEventListener("scroll", revealOnScroll);
+
+        revealOnScroll();
+
+
+        /* Contact Form */
+
+        const contactForm =
+            document.getElementById("contactForm");
+
+        contactForm.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const name =
+                document.getElementById("name").value;
+
+            alert(
+                "Thank you, " + name +
+                "! Your message has been received."
+            );
+
+            contactForm.reset();
+
+        });
+
+
+        /* Navbar shadow on scroll */
+
+        window.addEventListener("scroll", () => {
+
+            const header = document.querySelector("header");
+
+            if (window.scrollY > 50) {
+
+                header.style.boxShadow =
+                    "0 5px 25px rgba(0,0,0,0.08)";
+
+            } else {
+
+                header.style.boxShadow =
+                    "0 2px 20px rgba(0,0,0,0.05)";
+
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
